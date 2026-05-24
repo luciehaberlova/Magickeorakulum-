@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #faf7f2;
+  --ink: #1a1a1a;
+  --accent: #4a3f7a;
+  --muted: #7a738f;
+  --muted-soft: #9a93ac;
+  --border: rgba(74, 63, 122, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Libre Franklin", system-ui, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 20px 24px;
+}
+
+.stage {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ---------- Crystal ball ---------- */
+.ball-wrap {
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+.ball-wrap.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.crystal-ball {
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(74, 63, 122, 0.28));
+}
+
+.glint {
+  transform-origin: center;
+  mix-blend-mode: screen;
+}
+
+.glint-1 {
+  animation: glint1 5s ease-in-out infinite;
+}
+.glint-2 {
+  animation: glint2 5s ease-in-out infinite;
+}
+.glint-3 {
+  animation: glint3 5s ease-in-out infinite;
+}
+
+@keyframes glint1 {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: translate(0, 0) scale(1);
+  }
+  35% {
+    opacity: 0.55;
+    transform: translate(2px, -2px) scale(1.08);
+  }
+  70% {
+    opacity: 0.95;
+    transform: translate(-2px, 1px) scale(0.95);
+  }
+}
+@keyframes glint2 {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+  40% {
+    opacity: 0.85;
+    transform: translate(-3px, 2px) scale(1.15);
+  }
+  75% {
+    opacity: 0.3;
+    transform: translate(2px, -1px) scale(0.9);
+  }
+}
+@keyframes glint3 {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(3px, -3px) scale(1.2);
+  }
+}
+
+/* ---------- Oracle lines ---------- */
+.line {
+  font-family: "Libre Baskerville", Georgia, serif;
+  margin: 0;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.line-1 {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  margin-bottom: 14px;
+  min-height: 1.45em;
+}
+
+.line-2 {
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink);
+  max-width: 420px;
+  margin: 0 auto 18px;
+  min-height: 1.45em;
+}
+
+.caret {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background: currentColor;
+  margin-left: 2px;
+  vertical-align: -2px;
+  animation: caret 0.9s steps(1) infinite;
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.55s ease-out,
+    transform 0.55s ease-out;
+  pointer-events: none;
+  margin-top: 4px;
+}
+.cta.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.cta-lead {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 14px;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: none;
+  letter-spacing: 0.01em;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(74, 63, 122, 0.22);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #3d3466;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(74, 63, 122, 0.3);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.cta-note {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 11.5px;
+  color: var(--muted-soft);
+  line-height: 1.45;
+  max-width: 360px;
+  margin: 12px auto 0;
+}
+
+/* ---------- Instagram section ---------- */
+.ig-section {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.ig-lead {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.btn-ig {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.btn-ig:hover {
+  background: rgba(74, 63, 122, 0.08);
+  border-color: rgba(74, 63, 122, 0.35);
+}
+.btn-ig:active {
+  background: rgba(74, 63, 122, 0.14);
+}
+
+.ig-confirm {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin: 10px auto 0;
+  max-width: 320px;
+  line-height: 1.45;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  min-height: 1.45em;
+}
+.ig-confirm.is-visible {
+  opacity: 1;
+}
+
+/* ---------- Compact for small screens (iPhone 375x667) ---------- */
+@media (max-height: 720px) {
+  .page {
+    padding-top: 14px;
+  }
+  .ball-wrap {
+    margin-bottom: 10px;
+  }
+  .line-1 {
+    margin-bottom: 10px;
+  }
+  .line-2 {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .cta-lead {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .btn-primary {
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+  .cta-note {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+  .ig-section {
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+}
+
+@media (max-height: 640px) {
+  .crystal-ball {
+    width: 100px;
+    height: 100px;
+  }
+}
