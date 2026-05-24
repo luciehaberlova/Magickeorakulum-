@@ -55,26 +55,22 @@
       }
       .ball-wrap.is-visible { opacity: 1; transform: translateY(0); }
       .crystal-ball {
-        display: block;
-        filter: drop-shadow(0 8px 18px rgba(74, 63, 122, 0.28));
+        display: inline-block;
+        font-size: 100px;
+        line-height: 1;
+        filter: drop-shadow(0 0 14px rgba(74, 63, 122, 0.35));
+        animation: ballPulse 4s ease-in-out infinite;
+        font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
       }
-      .glint { transform-origin: center; mix-blend-mode: screen; }
-      .glint-1 { animation: glint1 5s ease-in-out infinite; }
-      .glint-2 { animation: glint2 5s ease-in-out infinite; }
-      .glint-3 { animation: glint3 5s ease-in-out infinite; }
-      @keyframes glint1 {
-        0%,100% { opacity: .9; transform: translate(0,0) scale(1); }
-        35% { opacity: .55; transform: translate(2px,-2px) scale(1.08); }
-        70% { opacity: .95; transform: translate(-2px,1px) scale(.95); }
-      }
-      @keyframes glint2 {
-        0%,100% { opacity: .4; transform: translate(0,0) scale(1); }
-        40% { opacity: .85; transform: translate(-3px,2px) scale(1.15); }
-        75% { opacity: .3; transform: translate(2px,-1px) scale(.9); }
-      }
-      @keyframes glint3 {
-        0%,100% { opacity: .3; transform: translate(0,0) scale(1); }
-        50% { opacity: .8; transform: translate(3px,-3px) scale(1.2); }
+      @keyframes ballPulse {
+        0%, 100% {
+          filter: drop-shadow(0 0 12px rgba(74, 63, 122, 0.3)) brightness(1);
+          transform: scale(1);
+        }
+        50% {
+          filter: drop-shadow(0 0 22px rgba(74, 63, 122, 0.55)) brightness(1.08);
+          transform: scale(1.03);
+        }
       }
       .line {
         font-family: "Libre Baskerville", Georgia, serif;
@@ -210,38 +206,7 @@
     <main class="page">
       <div class="stage">
         <div class="ball-wrap" id="ballWrap">
-          <svg
-            class="crystal-ball"
-            width="120"
-            height="120"
-            viewBox="0 0 120 120"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <defs>
-              <radialGradient id="ballGrad" cx="40%" cy="38%" r="62%">
-                <stop offset="0%" stop-color="#D8CFF0" />
-                <stop offset="45%" stop-color="#8C7CC4" />
-                <stop offset="85%" stop-color="#3A2F6A" />
-                <stop offset="100%" stop-color="#1F1845" />
-              </radialGradient>
-              <radialGradient id="outerGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="60%" stop-color="#4A3F7A" stop-opacity="0" />
-                <stop offset="100%" stop-color="#4A3F7A" stop-opacity="0.35" />
-              </radialGradient>
-              <radialGradient id="innerLight" cx="38%" cy="35%" r="22%">
-                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.7" />
-                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
-              </radialGradient>
-            </defs>
-            <circle cx="60" cy="60" r="58" fill="url(#outerGlow)" />
-            <circle cx="60" cy="62" r="46" fill="url(#ballGrad)" />
-            <circle cx="48" cy="48" r="22" fill="url(#innerLight)" />
-            <ellipse cx="60" cy="110" rx="26" ry="3" fill="#1A1A1A" opacity="0.18" />
-            <circle class="glint glint-1" cx="46" cy="44" r="4.5" fill="#ffffff" />
-            <circle class="glint glint-2" cx="72" cy="56" r="2.2" fill="#ffffff" />
-            <circle class="glint glint-3" cx="54" cy="78" r="1.6" fill="#ffffff" />
-          </svg>
+          <span class="crystal-ball" role="img" aria-label="crystal ball">🔮</span>
         </div>
 
         <p class="line line-1" id="line1" aria-live="polite"></p>
@@ -257,13 +222,15 @@
             rel="noopener noreferrer"
           ></a>
           <p class="cta-note">
-            Proklik tě provede zdarma registrací do komunity The Funnel Empire
-            na Circle, kde najdeš svou masterclass.
+            Proklik tě provede založením uživatelského účtu v komunitě The Funnel Empire
+            na Circle, kde se tvá masterclass následně otevře.
           </p>
 
           <div class="ig-section">
             <p class="ig-lead">
-              Udělejte nejdřív screenshot — pak klikněte na tlačítko níže.
+              Bavilo tě to? Než zmizíš, udělej screenshot obrazovky a sdílej
+              svou věštbu do stories. Text se ti zkopíruje do schránky
+              kliknutím na tlačítko, stačí ho vložit.
             </p>
             <button type="button" class="btn-ig" id="igBtn">
               Sdílet věštbu na Instagram Stories

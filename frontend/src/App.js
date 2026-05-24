@@ -46,49 +46,14 @@ const FIRST_LINE = "Magické orákulum říká…";
 
 function CrystalBall() {
   return (
-    <svg
+    <span
       className="crystal-ball"
-      width="120"
-      height="120"
-      viewBox="0 0 120 120"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
+      role="img"
+      aria-label="crystal ball"
       data-testid="crystal-ball"
     >
-      <defs>
-        <radialGradient id="ballGrad" cx="40%" cy="38%" r="62%">
-          <stop offset="0%" stopColor="#D8CFF0" />
-          <stop offset="45%" stopColor="#8C7CC4" />
-          <stop offset="85%" stopColor="#3A2F6A" />
-          <stop offset="100%" stopColor="#1F1845" />
-        </radialGradient>
-        <radialGradient id="outerGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="60%" stopColor="#4A3F7A" stopOpacity="0" />
-          <stop offset="100%" stopColor="#4A3F7A" stopOpacity="0.35" />
-        </radialGradient>
-        <radialGradient id="innerLight" cx="38%" cy="35%" r="22%">
-          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      {/* Outer halo */}
-      <circle cx="60" cy="60" r="58" fill="url(#outerGlow)" />
-
-      {/* Ball body */}
-      <circle cx="60" cy="62" r="46" fill="url(#ballGrad)" />
-
-      {/* Inner ambient light */}
-      <circle cx="48" cy="48" r="22" fill="url(#innerLight)" />
-
-      {/* Stand (subtle base) */}
-      <ellipse cx="60" cy="110" rx="26" ry="3" fill="#1A1A1A" opacity="0.18" />
-
-      {/* Animated glints */}
-      <circle className="glint glint-1" cx="46" cy="44" r="4.5" fill="#ffffff" />
-      <circle className="glint glint-2" cx="72" cy="56" r="2.2" fill="#ffffff" />
-      <circle className="glint glint-3" cx="54" cy="78" r="1.6" fill="#ffffff" />
-    </svg>
+      🔮
+    </span>
   );
 }
 
@@ -275,13 +240,15 @@ export default function App() {
             {mc.name}
           </a>
           <p className="cta-note">
-            Proklik tě provede zdarma registrací do komunity The Funnel Empire
-            na Circle, kde najdeš svou masterclass.
+            Proklik tě provede založením uživatelského účtu v komunitě The
+            Funnel Empire na Circle, kde se tvá masterclass následně otevře.
           </p>
 
           <div className="ig-section" data-testid="ig-section">
             <p className="ig-lead">
-              Udělejte nejdřív screenshot — pak klikněte na tlačítko níže.
+              Bavilo tě to? Než zmizíš, udělej screenshot obrazovky a sdílej
+              svou věštbu do stories. Text se ti zkopíruje do schránky
+              kliknutím na tlačítko, stačí ho vložit.
             </p>
             <button
               type="button"

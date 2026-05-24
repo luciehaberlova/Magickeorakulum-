@@ -63,64 +63,24 @@ body {
 }
 
 .crystal-ball {
-  display: block;
-  filter: drop-shadow(0 8px 18px rgba(74, 63, 122, 0.28));
+  display: inline-block;
+  font-size: 100px;
+  line-height: 1;
+  filter: drop-shadow(0 0 14px rgba(74, 63, 122, 0.35));
+  animation: ballPulse 4s ease-in-out infinite;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
+    sans-serif;
 }
 
-.glint {
-  transform-origin: center;
-  mix-blend-mode: screen;
-}
-
-.glint-1 {
-  animation: glint1 5s ease-in-out infinite;
-}
-.glint-2 {
-  animation: glint2 5s ease-in-out infinite;
-}
-.glint-3 {
-  animation: glint3 5s ease-in-out infinite;
-}
-
-@keyframes glint1 {
+@keyframes ballPulse {
   0%,
   100% {
-    opacity: 0.9;
-    transform: translate(0, 0) scale(1);
-  }
-  35% {
-    opacity: 0.55;
-    transform: translate(2px, -2px) scale(1.08);
-  }
-  70% {
-    opacity: 0.95;
-    transform: translate(-2px, 1px) scale(0.95);
-  }
-}
-@keyframes glint2 {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: translate(0, 0) scale(1);
-  }
-  40% {
-    opacity: 0.85;
-    transform: translate(-3px, 2px) scale(1.15);
-  }
-  75% {
-    opacity: 0.3;
-    transform: translate(2px, -1px) scale(0.9);
-  }
-}
-@keyframes glint3 {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: translate(0, 0) scale(1);
+    filter: drop-shadow(0 0 12px rgba(74, 63, 122, 0.3)) brightness(1);
+    transform: scale(1);
   }
   50% {
-    opacity: 0.8;
-    transform: translate(3px, -3px) scale(1.2);
+    filter: drop-shadow(0 0 22px rgba(74, 63, 122, 0.55)) brightness(1.08);
+    transform: scale(1.03);
   }
 }
 
