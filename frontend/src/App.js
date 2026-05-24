@@ -145,6 +145,8 @@ export default function App() {
   const handleShare = async () => {
     const text =
       "Magické orákulum od @luciehaberlova.cz #zahradnislavnost";
+
+    // 1) Copy to clipboard
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(text);
@@ -159,30 +161,25 @@ export default function App() {
         document.body.removeChild(ta);
       }
     } catch (e) {
-      /* clipboard might be blocked, still attempt deep link */
+      /* clipboard might be blocked */
     }
 
-    // Try opening Instagram app first, fallback to web
-    const win = window.open("instagram://app", "_blank");
-    setTimeout(() => {
-      // If app didn't open (no instagram), open the web version
+    // 2) Native share sheet if supported, otherwise fallback to Instagram web
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
       try {
-        if (!win || win.closed || typeof win.closed === "undefined") {
-          window.open(
-            "https://www.instagram.com/",
-            "_blank",
-            "noopener,noreferrer",
-          );
-        }
+        await navigator.share({ text });
       } catch (e) {
-        window.open(
-          "https://www.instagram.com/",
-          "_blank",
-          "noopener,noreferrer",
-        );
+        /* user cancelled or share failed — keep confirmation message */
       }
-    }, 350);
+    } else {
+      window.open(
+        "https://www.instagram.com/",
+        "_blank",
+        "noopener,noreferrer",
+      );
+    }
 
+    // 3) Confirmation message
     setShareMsg(true);
     setTimeout(() => setShareMsg(false), 4000);
   };

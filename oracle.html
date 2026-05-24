@@ -385,29 +385,31 @@
           igBtn.addEventListener("click", function () {
             var text =
               "Magické orákulum od @luciehaberlova.cz #zahradnislavnost";
-            copyText(text).finally(function () {
-              var win = window.open("instagram://app", "_blank");
-              setTimeout(function () {
-                try {
-                  if (!win || win.closed || typeof win.closed === "undefined") {
-                    window.open(
-                      "https://www.instagram.com/",
-                      "_blank",
-                      "noopener,noreferrer"
-                    );
-                  }
-                } catch (e) {
-                  window.open(
-                    "https://www.instagram.com/",
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
-                }
-              }, 350);
+
+            function showConfirm() {
               igConfirm.classList.add("is-visible");
               setTimeout(function () {
                 igConfirm.classList.remove("is-visible");
               }, 4000);
+            }
+
+            copyText(text).finally(function () {
+              if (
+                typeof navigator !== "undefined" &&
+                typeof navigator.share === "function"
+              ) {
+                navigator
+                  .share({ text: text })
+                  .catch(function () {})
+                  .finally(showConfirm);
+              } else {
+                window.open(
+                  "https://www.instagram.com/",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+                showConfirm();
+              }
             });
           });
         });
