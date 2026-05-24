@@ -146,7 +146,6 @@ export default function App() {
     const text =
       "Magické orákulum od @luciehaberlova.cz #zahradnislavnost";
 
-    // 1) Copy to clipboard
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(text);
@@ -164,22 +163,6 @@ export default function App() {
       /* clipboard might be blocked */
     }
 
-    // 2) Native share sheet if supported, otherwise fallback to Instagram web
-    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
-      try {
-        await navigator.share({ text });
-      } catch (e) {
-        /* user cancelled or share failed — keep confirmation message */
-      }
-    } else {
-      window.open(
-        "https://www.instagram.com/",
-        "_blank",
-        "noopener,noreferrer",
-      );
-    }
-
-    // 3) Confirmation message
     setShareMsg(true);
     setTimeout(() => setShareMsg(false), 4000);
   };
@@ -260,8 +243,8 @@ export default function App() {
               data-testid="ig-confirm"
               aria-live="polite"
             >
-              Text zkopírován! Přidej screenshot do Stories a vlož text ze
-              schránky ✨
+              Text zkopírován! Otevři Instagram, přidej novou Story a vlož text
+              ze schránky. ✨
             </p>
           </div>
         </div>

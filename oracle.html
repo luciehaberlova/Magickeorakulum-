@@ -236,8 +236,8 @@
               Sdílet věštbu na Instagram Stories
             </button>
             <p class="ig-confirm" id="igConfirm" aria-live="polite">
-              Text zkopírován! Přidej screenshot do Stories a vlož text ze
-              schránky ✨
+              Text zkopírován! Otevři Instagram, přidej novou Story a vlož text
+              ze schránky. ✨
             </p>
           </div>
         </div>
@@ -385,31 +385,11 @@
           igBtn.addEventListener("click", function () {
             var text =
               "Magické orákulum od @luciehaberlova.cz #zahradnislavnost";
-
-            function showConfirm() {
+            copyText(text).finally(function () {
               igConfirm.classList.add("is-visible");
               setTimeout(function () {
                 igConfirm.classList.remove("is-visible");
               }, 4000);
-            }
-
-            copyText(text).finally(function () {
-              if (
-                typeof navigator !== "undefined" &&
-                typeof navigator.share === "function"
-              ) {
-                navigator
-                  .share({ text: text })
-                  .catch(function () {})
-                  .finally(showConfirm);
-              } else {
-                window.open(
-                  "https://www.instagram.com/",
-                  "_blank",
-                  "noopener,noreferrer"
-                );
-                showConfirm();
-              }
             });
           });
         });
