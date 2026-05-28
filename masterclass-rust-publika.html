@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#FAF7F2" />
+    <title>Jak zajistit růst publika na Instagramu – zdarma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #faf7f2;
+        --ink: #1a1a1a;
+        --accent: #4a3f7a;
+        --muted: #7a738f;
+        --muted-soft: #9a93ac;
+        --border: rgba(74, 63, 122, 0.18);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--ink);
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Libre Franklin", system-ui, sans-serif;
+      }
+      .page {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 36px 24px 40px;
+      }
+      .stage {
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeUp 0.6s ease-out 0.1s forwards;
+      }
+      @keyframes fadeUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .emoji-wrap {
+        font-size: 56px;
+        line-height: 1;
+        margin-bottom: 20px;
+        font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      }
+      .congrats {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 13px;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin: 0 0 10px;
+      }
+      .title {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.35;
+        margin: 0 0 6px;
+      }
+      .value {
+        font-family: "Libre Franklin", sans-serif;
+        font-size: 13px;
+        color: var(--muted-soft);
+        margin: 0 0 24px;
+      }
+      .divider {
+        width: 40px;
+        height: 1px;
+        background: var(--border);
+        margin: 0 auto 24px;
+      }
+      .info {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 15px;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.6;
+        margin: 0 0 28px;
+        max-width: 400px;
+      }
+      .note {
+        font-family: "Libre Franklin", sans-serif;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.55;
+        margin: 0 0 28px;
+        max-width: 400px;
+      }
+      .btn-primary {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-family: "Libre Franklin", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        padding: 14px 28px;
+        border-radius: 999px;
+        border: none;
+        letter-spacing: 0.01em;
+        transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+        box-shadow: 0 4px 14px rgba(74, 63, 122, 0.22);
+        cursor: pointer;
+        margin-bottom: 28px;
+      }
+      .btn-primary:hover {
+        background: #3d3466;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(74, 63, 122, 0.3);
+      }
+      .btn-primary:active { transform: translateY(0); }
+      .ps-block {
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+        width: 100%;
+        max-width: 400px;
+      }
+      .ps {
+        font-family: "Libre Franklin", sans-serif;
+        font-size: 12.5px;
+        color: var(--muted);
+        line-height: 1.55;
+        margin: 0 0 10px;
+      }
+      .ps strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .contact {
+        font-family: "Libre Franklin", sans-serif;
+        font-size: 12px;
+        color: var(--muted-soft);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .contact a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .contact a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="stage">
+        <div class="emoji-wrap">🎁</div>
+        <p class="congrats">Gratuluji</p>
+        <h1 class="title">Získáváš zdarma masterclass<br>Jak zajistit růst publika na Instagramu</h1>
+        <p class="value">v hodnotě 450 Kč</p>
+        <div class="divider"></div>
+        <p class="info">
+          Pro zpřístupnění masterclass je potřeba přístup do komunity The Funnel Empire.
+          Kliknutím na tlačítko se otevře přihlašovací stránka login.circle.so,
+          kde si můžeš založit účet — nebo se přihlásit, pokud už přístup máš.
+          Masterclass se ti pak hned otevře.
+        </p>
+        <a
+          class="btn-primary"
+          href="https://komunita.thefunnelempire.cz/join?invitation_token=21c459d6d7ff5c3ecdc38c221f23b4cfafc86c3f-c82c4354-443b-4890-9c40-3a3e1be3f0de"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Přejít k založení účtu / přihlášení</a>
+        <div class="ps-block">
+          <p class="ps">
+            <strong>PS:</strong> Ve čtvrtek tě přímo v komunitě zvu na call,
+            kde ukážu, jak jsem celé orákulum vytvořila.
+            Je to překvapivě jednoduché (a záznam bude).
+          </p>
+          <p class="contact">
+            Kdyby cokoliv nefungovalo, napiš mi na
+            <a href="mailto:luciehaberlova@pm.me">luciehaberlova@pm.me</a> — vyřeším to.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
